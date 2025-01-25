@@ -2,7 +2,6 @@
 
 #include <cmath>
 #include <numeric>
-#include <vector>
 
 #include "lemlib/api.hpp"  // IWYU pragma: keep
 #include "liblvgl/llemu.hpp"
@@ -12,6 +11,7 @@
 #include "pros/motors.hpp"
 #include "pros/rtos.hpp"
 #define pi 3.141592653589793
+
 #define as(a, b, c, d) for (auto a = b; a < c; a += d)
 #define de(a, b, c, d) for (auto a = b; a > c; a -= d)
 
@@ -308,6 +308,7 @@ void autonomous() {
       mogoExtend();
       inertialTurn(-45, 300);
       //intakeon;
+      ladyBrownCycle(false);
       drive(26, true, 600);
       //intakeoff;
     } else {  // far side
@@ -329,6 +330,7 @@ void autonomous() {
       drive(6, false, 400);
       mogoExtend();
       inertialTurn(-45, 300);
+      ladyBrownCycle(false);
       drive(9, false, 400);
 
     } else {  // far side
