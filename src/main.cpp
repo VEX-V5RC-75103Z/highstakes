@@ -21,7 +21,7 @@ bool autonSide;                         // T = close, F = far
 const int wheelCirc = 220;              // in mm
 const int driveEncoders = 300;          // ticks per revolution
 const double trackWidth = 10.8 * 25.4;  // conversion to mm
-int lbStates[3] = {0, 100, 200};        // list of all the states
+int lbStates[3] = {0, 338, 217};        // list of all the states
 int lbState = 0;                        // current state it is in
 const int lbTotalStates =
     sizeof(lbStates) / sizeof(lbStates[0]);  // total number of states
@@ -122,7 +122,7 @@ void ladyBrownSet() {
   double kp = 1.5;
   double error = (lbStates[lbState] - lbRotation.get_position());
   double movePower = kp * error;
-  lb.move(movePower);
+  lb.move(-movePower);
 }
 
 void toHeading(double degrees, int rpm) {
